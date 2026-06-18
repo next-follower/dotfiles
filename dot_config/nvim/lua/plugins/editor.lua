@@ -9,20 +9,24 @@ return {
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
     },
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<esc>"] = require("telescope.actions").close,
+    opts = function()
+      local actions = require("telescope.actions")
+
+      return {
+        defaults = {
+          mappings = {
+            i = {
+              ["<esc>"] = actions.close,
+            },
           },
         },
-      },
-    },
+      }
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    cmd = "Neotree",
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
@@ -36,6 +40,7 @@ return {
         follow_current_file = {
           enabled = true,
         },
+        hijack_netrw_behavior = "open_default",
         use_libuv_file_watcher = true,
       },
     },

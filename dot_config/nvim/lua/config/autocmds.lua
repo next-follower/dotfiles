@@ -15,3 +15,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = group,
+  callback = function(event)
+    pcall(vim.treesitter.start, event.buf)
+  end,
+})

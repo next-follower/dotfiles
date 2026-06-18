@@ -1,12 +1,14 @@
 # theme = TokyoNight
 
-# theme = Vesper
+theme = Vesper
+
+# theme = Calamity
 
 # theme = Kanagawa Dragon
 
 # theme = Rose Pine Moon
 
-theme = Nord
+# theme = Nord
 
 font-family = "JetBrainsMono Nerd Font Mono"
 
@@ -16,7 +18,7 @@ background-opacity = 0.72
 
 macos-titlebar-style = transparent
 
-background-blur = 35
+background-blur = 30
 
 # background-blur = macos-glass-clear
 
@@ -31,3 +33,5 @@ window-padding-y = 8
 macos-icon = custom
 
 macos-custom-icon = ~/.config/ghostty/tokyo-night.icns
+
+auto-update-channel = tip
