@@ -1,0 +1,58 @@
+# Repository Guidelines
+
+This repository stores personal dotfiles managed by chezmoi. Treat files in this
+repository as the source of truth, and avoid editing generated target files in
+`$HOME` unless the user explicitly asks to apply or debug the live state.
+
+## Structure
+
+- `dot_config/nvim/` maps to `~/.config/nvim/`.
+- `dot_config/ghostty/` maps to `~/.config/ghostty/`.
+- `README.md` should stay short and describe the repository at a high level.
+
+## Chezmoi Workflow
+
+- Edit source files in this repository first.
+- Use `chezmoi apply <target>` when a change must be written to the live home
+  directory. Applying to `$HOME` paths may require approval because it writes
+  outside the workspace.
+- If a source file is deleted, check whether a stale live file remains under the
+  target path; chezmoi may not remove unmanaged leftovers automatically.
+- Prefer targeted apply commands, for example:
+
+```sh
+chezmoi apply ~/.config/nvim
+```
+
+## Neovim Configuration
+
+- Keep `dot_config/nvim/init.lua` as a small entry point.
+- Put base Neovim behavior in `dot_config/nvim/lua/config/`.
+- Put lazy.nvim plugin specs in `dot_config/nvim/lua/plugins/`.
+- Do not add `nvim-treesitter`; the upstream repository is archived. Prefer
+  Neovim's built-in `vim.treesitter.start()` when parser support is available.
+- Avoid requiring plugin modules at plugin-spec import time. Use lazy.nvim
+  `opts = function()` or `config = function()` when a plugin module must be
+  required.
+
+Useful validation commands:
+
+```sh
+env XDG_STATE_HOME=/private/tmp/nvim-state XDG_CACHE_HOME=/private/tmp/nvim-cache nvim --headless -i NONE '+qa'
+env XDG_STATE_HOME=/private/tmp/nvim-state XDG_CACHE_HOME=/private/tmp/nvim-cache nvim --headless -i NONE /private/tmp/nvim-config-check.lua '+qa'
+```
+
+When validating the source tree before applying it, point Neovim at the chezmoi
+source config:
+
+```sh
+env XDG_CONFIG_HOME=/Users/fengchen/.local/share/chezmoi/dot_config XDG_STATE_HOME=/private/tmp/nvim-state XDG_CACHE_HOME=/private/tmp/nvim-cache XDG_DATA_HOME=/Users/fengchen/.local/share nvim --headless -i NONE '+qa'
+```
+
+## Editing Rules
+
+- Keep changes narrow and preserve unrelated user edits.
+- Use structured config APIs over ad hoc shell or string rewrites.
+- Do not commit, stage, or push unless the user asks.
+- Before reporting success, run the relevant validation command and report any
+  command that could not be run.
