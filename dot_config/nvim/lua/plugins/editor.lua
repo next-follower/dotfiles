@@ -36,6 +36,32 @@ return {
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer" },
     },
     opts = {
+      close_if_last_window = true,
+      enable_git_status = true,
+      enable_diagnostics = true,
+      default_component_configs = {
+        indent = {
+          with_expanders = true,
+          expander_collapsed = "",
+          expander_expanded = "",
+        },
+        git_status = {
+          symbols = {
+            added = "A",
+            modified = "M",
+            deleted = "D",
+            renamed = "R",
+            untracked = "?",
+            ignored = "!",
+            unstaged = "U",
+            staged = "S",
+            conflict = "C",
+          },
+        },
+      },
+      window = {
+        width = 32,
+      },
       filesystem = {
         follow_current_file = {
           enabled = true,
@@ -43,6 +69,21 @@ return {
         hijack_netrw_behavior = "open_default",
         use_libuv_file_watcher = true,
       },
+    },
+  },
+  {
+    "karb94/neoscroll.nvim",
+    event = "VeryLazy",
+    opts = {
+      mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+      hide_cursor = true,
+      stop_eof = true,
+      respect_scrolloff = true,
+      cursor_scrolls_alone = true,
+      easing_function = "quadratic",
+      pre_hook = nil,
+      post_hook = nil,
+      performance_mode = false,
     },
   },
   {

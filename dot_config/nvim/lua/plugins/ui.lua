@@ -8,6 +8,27 @@ return {
       options = {
         globalstatus = true,
         theme = "auto",
+        always_show_tabline = true,
+      },
+      tabline = {
+        lualine_a = {
+          {
+            "buffers",
+            mode = 2,
+            icons_enabled = true,
+            use_mode_colors = true,
+            symbols = {
+              modified = " ●",
+              alternate_file = "",
+              directory = "",
+            },
+          },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
     },
   },
