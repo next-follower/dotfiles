@@ -8,7 +8,6 @@ return {
       options = {
         globalstatus = true,
         theme = "auto",
-        always_show_tabline = true,
       },
       tabline = {
         lualine_a = {
