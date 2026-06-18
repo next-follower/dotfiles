@@ -66,10 +66,9 @@ return {
       { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
     },
     opts = {
-      direction = "float",
-      float_opts = {
-        border = "rounded",
-      },
+      direction = "horizontal",
+      persist_size = false,
+      size = 15,
     },
   },
 }

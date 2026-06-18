@@ -33,7 +33,7 @@ return {
     opts = {
       cmdline = {
         enabled = true,
-        view = "cmdline",
+        view = "cmdline_popup",
         format = {
           cmdline = { pattern = "^:", icon = ":", lang = "vim" },
           search_down = { kind = "search", pattern = "^/", icon = "/", lang = "regex" },
@@ -43,6 +43,21 @@ return {
           help = { pattern = "^:%s*he?l?p?%s+", icon = "?", lang = "vim" },
         },
       },
+      views = {
+        cmdline_popup = {
+          position = {
+            row = "40%",
+            col = "50%",
+          },
+          size = {
+            width = 60,
+            height = "auto",
+          },
+          border = {
+            style = "rounded",
+          },
+        },
+      },
       messages = {
         enabled = true,
       },
@@ -50,7 +65,7 @@ return {
         enabled = true,
       },
       presets = {
-        command_palette = false,
+        command_palette = true,
         long_message_to_split = true,
       },
     },
