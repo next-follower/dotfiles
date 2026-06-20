@@ -1,10 +1,15 @@
 # theme = TokyoNight
 
-theme = Vesper
+# theme = Vesper
+
+theme = Synthwave Alpha
+
+# theme = Catppuccin Mocha
 
 # theme = Calamity
 
 # theme = Kanagawa Dragon
+
 
 # theme = Rose Pine Moon
 
@@ -34,4 +39,4 @@ macos-icon = custom
 
 macos-custom-icon = ~/.config/ghostty/tokyo-night.icns
 
-auto-update-channel = tip
+# auto-update-channel = tip
