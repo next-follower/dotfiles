@@ -2,6 +2,7 @@ local icons_plugin = "DaikyXendo/nvim-material-icon"
 
 return {
   { icons_plugin, lazy = true },
+  { "echasnovski/mini.bufremove", version = false },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -17,11 +18,17 @@ return {
     "akinsho/bufferline.nvim",
     version = "*",
     event = "VeryLazy",
-    dependencies = { icons_plugin },
+    dependencies = { icons_plugin, "echasnovski/mini.bufremove" },
     keys = {
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
       { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-      { "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete buffer" },
+      {
+        "<leader>bd",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        desc = "Delete buffer",
+      },
       { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Delete other buffers" },
       { "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "Pin buffer" },
     },
@@ -30,6 +37,12 @@ return {
         mode = "buffers",
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
+        close_command = function(bufnr)
+          require("mini.bufremove").delete(bufnr, false)
+        end,
+        right_mouse_command = function(bufnr)
+          require("mini.bufremove").delete(bufnr, false)
+        end,
         indicator = {
           style = "icon",
         },
