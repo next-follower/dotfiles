@@ -59,6 +59,7 @@ return {
       transparent_background = true,
       term_colors = true,
       integrations = {
+        bufferline = true,
         blink_cmp = true,
         gitsigns = true,
         mason = true,

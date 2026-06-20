@@ -1,33 +1,68 @@
+local icons_plugin = "DaikyXendo/nvim-material-icon"
+
 return {
-  { "nvim-tree/nvim-web-devicons", lazy = true },
+  { icons_plugin, lazy = true },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { icons_plugin },
     opts = {
       options = {
         globalstatus = true,
         theme = "auto",
       },
-      tabline = {
-        lualine_a = {
+    },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    event = "VeryLazy",
+    dependencies = { icons_plugin },
+    keys = {
+      { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
+      { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      { "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete buffer" },
+      { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Delete other buffers" },
+      { "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "Pin buffer" },
+    },
+    opts = {
+      options = {
+        mode = "buffers",
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = false,
+        indicator = {
+          style = "icon",
+        },
+        buffer_close_icon = "󰅖",
+        modified_icon = "●",
+        close_icon = "",
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        max_name_length = 18,
+        max_prefix_length = 15,
+        truncate_names = true,
+        tab_size = 18,
+        color_icons = true,
+        show_buffer_icons = true,
+        show_buffer_close_icons = true,
+        show_close_icon = true,
+        show_tab_indicators = true,
+        persist_buffer_sort = true,
+        separator_style = "thin",
+        enforce_regular_tabs = false,
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { "close" },
+        },
+        offsets = {
           {
-            "buffers",
-            mode = 2,
-            icons_enabled = true,
-            use_mode_colors = true,
-            symbols = {
-              modified = " ●",
-              alternate_file = "",
-              directory = "",
-            },
+            filetype = "neo-tree",
+            text = "Explorer",
+            highlight = "Directory",
+            text_align = "left",
           },
         },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
       },
     },
   },
@@ -38,6 +73,7 @@ return {
       preset = "modern",
       delay = 300,
       spec = {
+        { "<leader>b", group = "buffer" },
         { "<leader>f", group = "find/format" },
         { "<leader>g", group = "git" },
         { "<leader>s", group = "split" },

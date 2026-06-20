@@ -21,6 +21,7 @@ return {
         "bashls",
         "clangd",
         "gopls",
+        "kotlin_language_server",
         "lua_ls",
         "pyright",
         "rust_analyzer",
@@ -60,6 +61,26 @@ return {
       })
 
       local servers = {
+        dartls = {
+          settings = {
+            dart = {
+              completeFunctionCalls = true,
+              showTodos = true,
+            },
+          },
+        },
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+              gofumpt = true,
+            },
+          },
+        },
+        kotlin_language_server = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -72,11 +93,25 @@ return {
             },
           },
         },
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+              },
+              check = {
+                command = "clippy",
+              },
+            },
+          },
+        },
       }
 
       for server, config in pairs(servers) do
         vim.lsp.config(server, config)
       end
+
+      vim.lsp.enable("dartls")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("user_lsp", { clear = true }),

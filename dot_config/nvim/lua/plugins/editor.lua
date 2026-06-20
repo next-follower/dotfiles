@@ -30,7 +30,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
+      "DaikyXendo/nvim-material-icon",
     },
     keys = {
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer" },
@@ -39,26 +39,6 @@ return {
       close_if_last_window = true,
       enable_git_status = true,
       enable_diagnostics = true,
-      default_component_configs = {
-        indent = {
-          with_expanders = true,
-          expander_collapsed = "",
-          expander_expanded = "",
-        },
-        git_status = {
-          symbols = {
-            added = "A",
-            modified = "M",
-            deleted = "D",
-            renamed = "R",
-            untracked = "?",
-            ignored = "!",
-            unstaged = "U",
-            staged = "S",
-            conflict = "C",
-          },
-        },
-      },
       window = {
         width = 32,
       },
@@ -84,6 +64,24 @@ return {
       pre_hook = nil,
       post_hook = nil,
       performance_mode = false,
+    },
+  },
+  {
+    "sphamba/smear-cursor.nvim",
+    event = "VeryLazy",
+    opts = {
+      smear_between_buffers = true,
+      smear_between_neighbor_lines = true,
+      scroll_buffer_space = true,
+      smear_insert_mode = true,
+      stiffness = 0.42,
+      trailing_stiffness = 0.32,
+      stiffness_insert_mode = 0.4,
+      trailing_stiffness_insert_mode = 0.35,
+      damping = 0.9,
+      damping_insert_mode = 0.92,
+      distance_stop_animating = 0.18,
+      transparent_bg_fallback_color = "#1e1e2e",
     },
   },
   {
