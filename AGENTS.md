@@ -34,6 +34,26 @@ chezmoi apply ~/.config/nvim
 - Avoid requiring plugin modules at plugin-spec import time. Use lazy.nvim
   `opts = function()` or `config = function()` when a plugin module must be
   required.
+- Keep plugin behavior close to the relevant plugin spec. Avoid adding custom
+  glue for common editor behavior when a plugin-native option or command exists.
+- UI conventions currently use `catppuccin/nvim` as the active theme,
+  `akinsho/bufferline.nvim` for top buffers, `nvim-neo-tree/neo-tree.nvim` for
+  the file explorer, `folke/noice.nvim` for the centered command line,
+  `akinsho/toggleterm.nvim` for the bottom terminal, and
+  `DaikyXendo/nvim-material-icon` for file icons.
+- LSP configuration lives in `dot_config/nvim/lua/plugins/lsp.lua`. Mason-managed
+  servers should be listed in `mason-lspconfig.nvim` `ensure_installed`.
+  Dart/Flutter uses `dartls` from the local Dart or Flutter SDK and should be
+  enabled explicitly with `vim.lsp.enable("dartls")`.
+- Formatter configuration lives in `dot_config/nvim/lua/plugins/format.lua` and
+  uses `stevearc/conform.nvim`. Prefer formatter names supported by Conform
+  instead of shelling out manually.
+- Current language support includes Go (`gopls`, `goimports`, `gofmt`), Rust
+  (`rust_analyzer`, `rustfmt`), Kotlin (`kotlin_language_server`, `ktlint`), and
+  Dart/Flutter (`dartls`, `dart_format`).
+- LSP navigation keymaps are buffer-local and configured on `LspAttach`; keep
+  definition/reference/implementation mappings there rather than in global
+  keymaps.
 
 Useful validation commands:
 
