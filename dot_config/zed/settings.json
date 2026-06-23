@@ -7,6 +7,36 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "default_open_behavior": "new_window",
+  "image_viewer": {
+    "unit": "binary"
+  },
+  "vim": {
+    "use_smartcase_find": false
+  },
+  "toolbar": {
+    "code_actions": false,
+    "quick_actions": true
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "zoomed_padding": true,
+  "tab_bar": {
+    "show_tab_bar_buttons": true,
+    "show_pinned_tabs_in_separate_row": true,
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "activate_on_close": "history",
+    "git_status": true,
+    "file_icons": true
+  },
+  "terminal": {
+    "show_count_badge": false
+  },
   "agent_servers": {
     "claude-acp": {
       "type": "registry"
@@ -15,11 +45,12 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "active_pane_modifiers": {
-    "inactive_opacity": 0.0
+    "inactive_opacity": 1.0
   },
   "window_decorations": "client",
   "use_system_window_tabs": false,
   "title_bar": {
+    "show_user_picture": false,
     "show_user_menu": true,
     "show_sign_in": false
   },
@@ -29,6 +60,8 @@
     "trust_all_worktrees": true
   },
   "project_panel": {
+    "sticky_scroll": false,
+    "auto_fold_dirs": false,
     "hide_root": false,
     "auto_reveal_entries": true,
     "hide_hidden": false,
@@ -38,6 +71,7 @@
     "dock": "left"
   },
   "outline_panel": {
+    "git_status": true,
     "dock": "left"
   },
   "collaboration_panel": {
@@ -49,6 +83,10 @@
     "model_parameters": []
   },
   "git_panel": {
+    "status_style": "icon",
+    "show_count_badge": false,
+    "folder_icons": true,
+    "file_icons": true,
     "tree_view": true,
     "dock": "left"
   },
@@ -59,14 +97,13 @@
     "flutter-snippets": true,
     "git-firefly": true,
     "html": true,
-    "jetbrains-new-ui-icons": true,
     "jetbrains-themes": true,
     "kotlin": true,
     "macos-classic": true,
     "material-icon-theme": true,
+    "nvim-nightfox": true,
     "one-dark-pro": true,
-    "tokyo-night": true,
-    "ultimate-dark-neo": true
+    "tokyo-night": true
   },
   "auto_update": false,
   "icon_theme": "Material Icon Theme",
