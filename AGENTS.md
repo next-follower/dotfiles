@@ -8,6 +8,7 @@ repository as the source of truth, and avoid editing generated target files in
 
 - `dot_config/nvim/` maps to `~/.config/nvim/`.
 - `dot_config/ghostty/` maps to `~/.config/ghostty/`.
+- `dot_config/zed/` maps to `~/.config/zed/`.
 - `README.md` should stay short and describe the repository at a high level.
 
 ## Chezmoi Workflow

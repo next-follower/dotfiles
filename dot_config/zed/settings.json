@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.0
+  },
+  "window_decorations": "client",
+  "use_system_window_tabs": false,
+  "title_bar": {
+    "show_user_menu": true,
+    "show_sign_in": false
+  },
+  "cli_default_open_behavior": "new_window",
+  "disable_ai": false,
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "project_panel": {
+    "hide_root": false,
+    "auto_reveal_entries": true,
+    "hide_hidden": false,
+    "git_status_indicator": false,
+    "diagnostic_badges": false,
+    "bold_folder_labels": false,
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left"
+  },
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "dart": true,
+    "flutter-snippets": true,
+    "git-firefly": true,
+    "html": true,
+    "jetbrains-new-ui-icons": true,
+    "jetbrains-themes": true,
+    "kotlin": true,
+    "macos-classic": true,
+    "material-icon-theme": true,
+    "one-dark-pro": true,
+    "tokyo-night": true,
+    "ultimate-dark-neo": true
+  },
+  "auto_update": false,
+  "icon_theme": "Material Icon Theme",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": false,
+  "base_keymap": "JetBrains",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "JetBrains Islands Dark"
+  }
+}
