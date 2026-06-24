@@ -7,57 +7,109 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "language_models": {
+    "openai_compatible": {
+      "Xiaomi": {
+        "api_url": "https://token-plan-cn.xiaomimimo.com/v1",
+        "available_models": [
+          {
+            "name": "mimo-v2.5-pro",
+            "max_tokens": 1048576,
+            "max_output_tokens": 131072,
+            "max_completion_tokens": 131072,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+            },
+          },
+          {
+            "name": "mimo-v2.5",
+            "max_tokens": 1048576,
+            "max_output_tokens": 131072,
+            "max_completion_tokens": 131072,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "edit_predictions": {
+    "provider": "open_ai_compatible_api",
+    "open_ai_compatible_api": {
+      "model": "mimo-v2.5",
+      "api_url": "https://token-plan-cn.xiaomimimo.com/v1",
+      "prompt_format": "infer",
+      "max_output_tokens": 128,
+    },
+  },
   "default_open_behavior": "new_window",
   "image_viewer": {
-    "unit": "binary"
+    "unit": "binary",
   },
   "vim": {
-    "use_smartcase_find": false
+    "use_smartcase_find": false,
   },
   "toolbar": {
     "code_actions": false,
-    "quick_actions": true
+    "quick_actions": true,
   },
   "autosave": {
     "after_delay": {
-      "milliseconds": 1000
-    }
+      "milliseconds": 1000,
+    },
   },
   "zoomed_padding": true,
   "tab_bar": {
     "show_tab_bar_buttons": true,
     "show_pinned_tabs_in_separate_row": true,
-    "show_nav_history_buttons": false
+    "show_nav_history_buttons": false,
   },
   "tabs": {
     "activate_on_close": "history",
     "git_status": true,
-    "file_icons": true
+    "file_icons": true,
   },
   "terminal": {
-    "show_count_badge": false
+    "show_count_badge": false,
   },
   "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "fast-mode": "on",
+      },
+      "type": "registry",
+    },
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "active_pane_modifiers": {
-    "inactive_opacity": 1.0
+    "inactive_opacity": 1.0,
   },
   "window_decorations": "client",
   "use_system_window_tabs": false,
   "title_bar": {
     "show_user_picture": false,
     "show_user_menu": true,
-    "show_sign_in": false
+    "show_sign_in": false,
   },
   "cli_default_open_behavior": "new_window",
   "disable_ai": false,
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "project_panel": {
     "sticky_scroll": false,
@@ -68,19 +120,33 @@
     "git_status_indicator": false,
     "diagnostic_badges": false,
     "bold_folder_labels": false,
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
     "git_status": true,
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "dock": "right",
-    "favorite_models": [],
-    "model_parameters": []
+    "default_profile": "write",
+    "default_model": {
+      "provider": "Xiaomi",
+      "model": "mimo-v2.5",
+      "enable_thinking": false,
+    },
+    "inline_assistant_model": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "enable_thinking": false,
+    },
+    "commit_message_model": {
+      "provider": "Xiaomi",
+      "model": "mimo-v2.5",
+      "enable_thinking": false,
+    },
   },
   "git_panel": {
     "status_style": "icon",
@@ -88,7 +154,7 @@
     "folder_icons": true,
     "file_icons": true,
     "tree_view": true,
-    "dock": "left"
+    "dock": "left",
   },
   "auto_install_extensions": {
     "catppuccin": true,
@@ -103,13 +169,13 @@
     "material-icon-theme": true,
     "nvim-nightfox": true,
     "one-dark-pro": true,
-    "tokyo-night": true
+    "tokyo-night": true,
   },
   "auto_update": false,
   "icon_theme": "Material Icon Theme",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": false,
   "base_keymap": "JetBrains",
@@ -118,6 +184,6 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "JetBrains Islands Dark"
-  }
+    "dark": "JetBrains Islands Dark",
+  },
 }
