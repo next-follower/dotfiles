@@ -7,7 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "file_finder": {
+    "file_icons": true,
+    "modal_max_width": "small",
+  },
+  "close_on_file_delete": false,
+  "scan_symlinks": "always",
+  "edit_predictions": {
+    "provider": "zed",
+  },
   "language_models": {
+    "lmstudio": {
+      "api_url": "http://127.0.0.1:1234/api/v0",
+    },
     "openai_compatible": {
       "Xiaomi": {
         "api_url": "https://token-plan-cn.xiaomimimo.com/v1",
@@ -44,16 +56,6 @@
       },
     },
   },
-  "edit_predictions": {
-    "provider": "open_ai_compatible_api",
-    "open_ai_compatible_api": {
-      "model": "mimo-v2.5",
-      "api_url": "https://token-plan-cn.xiaomimimo.com/v1",
-      "prompt_format": "infer",
-      "max_output_tokens": 128,
-    },
-  },
-  "default_open_behavior": "new_window",
   "image_viewer": {
     "unit": "binary",
   },
@@ -83,17 +85,6 @@
   "terminal": {
     "show_count_badge": false,
   },
-  "agent_servers": {
-    "codex-acp": {
-      "default_config_options": {
-        "fast-mode": "on",
-      },
-      "type": "registry",
-    },
-    "claude-acp": {
-      "type": "registry",
-    },
-  },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "active_pane_modifiers": {
@@ -102,6 +93,8 @@
   "window_decorations": "client",
   "use_system_window_tabs": false,
   "title_bar": {
+    "show_branch_status_icon": false,
+    "show_menus": true,
     "show_user_picture": false,
     "show_user_menu": true,
     "show_sign_in": false,
@@ -112,13 +105,20 @@
     "trust_all_worktrees": true,
   },
   "project_panel": {
+    "auto_open": {
+      "on_create": true,
+    },
+    "scrollbar": {
+      "horizontal_scroll": true,
+    },
+    "file_icons": true,
     "sticky_scroll": false,
     "auto_fold_dirs": false,
     "hide_root": false,
     "auto_reveal_entries": true,
     "hide_hidden": false,
-    "git_status_indicator": false,
-    "diagnostic_badges": false,
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
     "bold_folder_labels": false,
     "dock": "left",
   },
@@ -133,9 +133,10 @@
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "provider": "Xiaomi",
-      "model": "mimo-v2.5",
-      "enable_thinking": false,
+      "effort": "high",
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "enable_thinking": true,
     },
     "inline_assistant_model": {
       "provider": "deepseek",
@@ -149,6 +150,7 @@
     },
   },
   "git_panel": {
+    "collapse_untracked_diff": false,
     "status_style": "icon",
     "show_count_badge": false,
     "folder_icons": true,
